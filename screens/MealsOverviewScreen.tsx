@@ -9,7 +9,6 @@ import {
 import MealItem from "../components/MealItem";
 
 import { MEALS, CATEGORIES } from "../data/dummy-data";
-import Category from "../models/category";
 import Meal from "../models/meal";
 import { MealsOverviewNatigationProps } from "./types";
 
@@ -32,6 +31,7 @@ const MealsOverviewScreen = ({
 
   const renderMealItem = ({ item }: ListRenderItemInfo<Meal>) => {
     const mealItemProps = {
+      id: item.id,
       title: item.title,
       imageUrl: item.imageUrl,
       duration: item.duration,

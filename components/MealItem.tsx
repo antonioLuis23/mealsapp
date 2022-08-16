@@ -1,7 +1,9 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import Meal from "../models/meal";
 
 type MealItemProps = {
+  id: string;
   title: string;
   imageUrl: string;
   duration: number;
@@ -9,12 +11,23 @@ type MealItemProps = {
   affordability: string;
 };
 const MealItem = ({
+  id,
   title,
   imageUrl,
   duration,
   complexity,
   affordability,
 }: MealItemProps) => {
+  const navigation = useNavigation();
+  const selectMealItemHandler = () => {
+    navigation.navigate(
+      "MealDetail" as never,
+      {
+        mealId: id,
+      } as never
+    );
+  };
+
   return (
     <View style={styles.mealContainer}>
       <Pressable
@@ -23,6 +36,7 @@ const MealItem = ({
           styles.mealItem,
           pressed ? styles.buttonPressed : null,
         ]}
+        onPress={selectMealItemHandler}
       >
         <View>
           <Image source={{ uri: imageUrl }} style={styles.image} />
