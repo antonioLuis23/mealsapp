@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import Meal from "../models/meal";
-import MealDetails from "./MealDetails";
+import Meal from "../../models/meal";
+import MealDetails from "../MealDetails";
 
 type MealItemProps = {
   id: string;
